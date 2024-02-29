@@ -1,5 +1,5 @@
 <div class="container">
-    <ng-container *ngIf="cartservice.listTrainings">
+    <ng-container *ngIf="displayTrainings()">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -7,7 +7,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let cartTraining of cartservice.listTrainings">
+                <tr *ngFor="let cartTraining of displayTrainings()">
                     <td>{{cartTraining.id}}</td>
                     <td>{{cartTraining.name}}</td>
                     <td>{{cartTraining.description}}</td>
@@ -16,7 +16,6 @@
                     <td> <a class="btn btn-primary" (click)="onAddToCart(cartTraining)">Ajouter</a></td>
                 </tr>
             </tbody>
-            
         </table>
     </ng-container>
 </div>

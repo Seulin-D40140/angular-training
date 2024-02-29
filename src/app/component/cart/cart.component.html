@@ -12,7 +12,7 @@
                     <td>{{training.name}}</td>
                     <td>{{training.description}}</td>
                     <td>{{training.price}}</td>
-                    <td> <input type="number" name="quantity" style="width: 60px" [(ngModel)]="training.quantity"></td>
+                    <td> <input  name="quantity" style="width: 60px" [(ngModel)]="training.quantity"></td>
                     <td> <a class="btn btn-danger" (click)="removeFromCart(training)">Supprimer</a></td>
                 </tr>
             </tbody>
