@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Training } from 'src/app/model/training.model';
 import { CartService } from 'src/app/service/cart.service';
 @Component({
@@ -9,18 +10,27 @@ import { CartService } from 'src/app/service/cart.service';
 
 export class CartComponent implements OnInit {
   
-  constructor( private cartcervice : CartService) { }
+  listCart : Training[]  | undefined
+  
+  constructor( private cartservice : CartService , private router : Router) { }
 
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.cartservice.listCart = this.cartservice.getLocalStorage('training')
+   }
 
   displayListCart()
   {
-    return this.cartcervice.getListCart()
+    return this.cartservice.getListCart()
   }
   
   removeFromCart(training : Training)
   {
-    this.cartcervice.removeTrainingFromCart(training)
+    this.cartservice.removeTrainingFromCart(training)
+  }
+
+  validateCart()
+  {
+    this.cartservice.validationCart()
   }
 }

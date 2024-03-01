@@ -7,13 +7,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let cartTraining of displayTrainings()">
-                    <td>{{cartTraining.id}}</td>
-                    <td>{{cartTraining.name}}</td>
-                    <td>{{cartTraining.description}}</td>
-                    <td>{{cartTraining.price}}</td>
-                    <td> <input type="number" name="quantity" style="width: 60px" [(ngModel)]="cartTraining.quantity"></td>
-                    <td> <a class="btn btn-primary" (click)="onAddToCart(cartTraining)">Ajouter</a></td>
+                <tr *ngFor="let Training of displayTrainings()">
+                    <td>{{Training.id}}</td>
+                    <td>{{Training.name}}</td>
+                    <td>{{Training.description}}</td>
+                    <td>{{Training.price}}</td>
+                    <td> <input type="number" name="quantity" style="width: 60px" [(ngModel)]="Training.quantity"></td>
+                    <td> <a class="btn btn-primary" (click)="onAddToCart(Training)">Ajouter</a></td>
                 </tr>
             </tbody>
         </table>

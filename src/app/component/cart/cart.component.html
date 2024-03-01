@@ -7,16 +7,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let training of displayListCart()">
-                    <td>{{training.id}}</td>
-                    <td>{{training.name}}</td>
-                    <td>{{training.description}}</td>
-                    <td>{{training.price}}</td>
-                    <td> <input  name="quantity" style="width: 60px" [(ngModel)]="training.quantity"></td>
-                    <td> <a class="btn btn-danger" (click)="removeFromCart(training)">Supprimer</a></td>
+                <tr *ngFor="let carttraining of displayListCart()">
+                    <td>{{carttraining.id}}</td>
+                    <td>{{carttraining.name}}</td>
+                    <td>{{carttraining.description}}</td>
+                    <td>{{carttraining.price}}</td>
+                    <td> <input  name="quantity" style="width: 60px" [(ngModel)]="carttraining.quantity"></td>
+                    <td> <a class="btn btn-danger" (click)="removeFromCart(carttraining)">Supprimer</a></td>
                 </tr>
             </tbody>
-            
         </table>
     </ng-container>
+    <div><a class="btn btn-success" (click)="validateCart()">validate</a></div>
 </div>
