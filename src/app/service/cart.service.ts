@@ -19,7 +19,7 @@ export class CartService {
   constructor( private router : Router) { }
 
   listCart : Training[] = []
-  
+  user = new Customer ( "" , "" , "" , "" , "")
   
   getLocalStorage(key : string)
   {
@@ -59,25 +59,23 @@ export class CartService {
     }
     localStorage.setItem('training' , JSON.stringify(this.listCart))
   }
-
-  getCustomer()
-  {
-    if( localStorage.getItem('user') != null)
-    {
-      return localStorage.getItem('user')
-    }
-    else
-    {
-      return ""
-    }
-  }
-
-
+  
   validationCart()
   {
     if(this.listCart.length > 0)
     {
       this.router.navigateByUrl('Customer');
     }
+  }
+
+  getuser ()
+  {
+    return this.user
+  }
+
+  clickNext()
+  {
+    localStorage.setItem('user' , JSON.stringify(this.user))
+    this.router.navigateByUrl('trainings');
   }
 }

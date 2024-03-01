@@ -1,15 +1,13 @@
 export class Customer
 {
-    id : number;
     name : string;
     firstname : string;
     adress : string;
     email : string;
-    phone : number;
+    phone : string;
 
-    constructor(id:number , name:string , firstname:string , adress:string, email:string , phone:number)
+    constructor(name:string , firstname:string , adress:string, email:string , phone:string)
     {
-        this.id = id;
         this.name = name;
         this.firstname = firstname;
         this.adress = adress;

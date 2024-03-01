@@ -12,7 +12,9 @@ export class CustomerComponent implements OnInit {
 
   constructor(public cartservice : CartService , private router : Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.cartservice.user = this.cartservice.getLocalStorage('user')
   }
   
   onSaveCustomer(customer : Customer)
@@ -25,8 +27,9 @@ export class CustomerComponent implements OnInit {
     this.router.navigateByUrl('cart');
   }
 
-  getUser()
+  getCustomer()
   {
-    this.cartservice.getCustomer()
+    return this.cartservice.getuser()
   }
+
 }

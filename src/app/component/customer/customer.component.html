@@ -3,25 +3,25 @@
         <form #f="ngForm" (ngSubmit)="onSaveCustomer(f.value)">
             <div class="form-group">
                 <label class="control-label"> Nom : </label>
-                <input type="text" name="Name" required class="form-control">
+                <input type="text" name="Name" required class="form-control" [(ngModel)]="getCustomer().name">
             </div>
             <div class="form-group">
-                <label class="control-label"> preom : </label>
-                <input type="text" name="firstName" required class="form-control">
+                <label class="control-label"> prenom : </label>
+                <input type="text" name="firstName" required class="form-control" [(ngModel)]="getCustomer().firstname">
             </div>
             <div class="form-group">
                 <label class="control-label"> adress : </label>
-                <input type="text" name="adress" required class="form-control">
+                <input type="text" name="adress" required class="form-control" [(ngModel)]="getCustomer().adress">
             </div>
             <div class="form-group">
                 <label class="control-label"> phone : </label>
-                <input type="text" name="phone" required class="form-control">
+                <input type="text" name="phone" required class="form-control" [(ngModel)]="getCustomer().email">
             </div>
             <div class="form-group">
                 <label class="control-label"> email : </label>
-                <input type="text" name="email" required class="form-control">
+                <input type="text" name="email" required class="form-control" [(ngModel)]="getCustomer().phone">
             </div>
-            <button type="submit" [disabled]="!f.valid" class="btn btn-primary"> Next </button>
+            <button type="submit" [disabled]="!f.valid" class="btn btn-primary" (click)="this.cartservice.clickNext()"> Next </button>
             <button type="submit" class="btn btn-danger" (click)="returnToCart()"> retour </button>
 
         </form>
