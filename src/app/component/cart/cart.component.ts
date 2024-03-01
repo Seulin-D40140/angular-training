@@ -33,4 +33,9 @@ export class CartComponent implements OnInit {
   {
     this.cartservice.validationCart()
   }
+
+  total()
+  {
+    return this.cartservice.calculTotal()
+  }
 }

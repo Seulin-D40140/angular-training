@@ -78,4 +78,9 @@ export class CartService {
     localStorage.setItem('user' , JSON.stringify(this.user))
     this.router.navigateByUrl('trainings');
   }
+
+  calculTotal()
+  {
+    return this.listCart.reduce((sum , e ) => sum += e.price*e.quantity,0)
+  }
 }
