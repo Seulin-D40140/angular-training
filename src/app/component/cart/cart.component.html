@@ -1,5 +1,5 @@
 <div class="container">
-    <ng-container *ngIf="displayListCart()">
+    <ng-container *ngIf="this.cartservice.getListCart()">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -7,7 +7,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let carttraining of displayListCart()">
+                <tr *ngFor="let carttraining of this.cartservice.getListCart()">
                     <td>{{carttraining.id}}</td>
                     <td>{{carttraining.name}}</td>
                     <td>{{carttraining.description}}</td>

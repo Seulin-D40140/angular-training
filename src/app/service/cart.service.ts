@@ -1,71 +1,66 @@
 import { Injectable } from '@angular/core';
 import { Training } from '../model/training.model';
 import { Customer } from '../model/customer.model';
-import { Router } from '@angular/router';
 
-@Injectable({
+@Injectable(
+{
   providedIn: 'root'
 })
 
  
 
-export class CartService {
-  
-  
+export class CartService 
+{
   listCustomer : Customer[] | undefined;
   
+  constructor() { }
 
-
-  constructor( private router : Router) { }
-
-  listCart : Training[] = []
+  listTrainings : Training[] = []
   user = new Customer ( "" , "" , "" , "" , "")
   
-  getLocalStorage(key : string)
+  getLocalStorageTrainings()
   {
-      let data = localStorage.getItem(key)||""
-      return JSON.parse(data)
+      let data = localStorage.getItem('trainings')||""
+      return this.listTrainings = JSON.parse(data)
+  }
+
+  getLocalStorageUser()
+  {
+      let data = localStorage.getItem('user')||""
+      return this.user = JSON.parse(data)
   }
 
   getListCart()
   {
-	  return this.listCart
+	  return this.listTrainings
   }
 
   removeTrainingFromCart(training : Training)
   {
-    let existTriningInCart = this.listCart.find( tr => tr.id == training.id)
+    let existTriningInCart = this.listTrainings.find( tr => tr.id == training.id)
     if(existTriningInCart && existTriningInCart.quantity > 1)
     {
       existTriningInCart.quantity--
     }
     else
     {
-      this.listCart.splice(this.listCart.indexOf(training) , 1 )
+      this.listTrainings.splice(this.listTrainings.indexOf(training) , 1 )
     }
-    localStorage.setItem('training' , JSON.stringify(this.listCart))
+    localStorage.setItem('trainings' , JSON.stringify(this.listTrainings))
   }
 
   addTraining(training: Training)
   {
-    let existTriningInCart = this.listCart.find( tr => tr.id == training.id)
+    let existTriningInCart = this.listTrainings.find( tr => tr.id == training.id)
     if(existTriningInCart)
     {
       existTriningInCart.quantity += training.quantity
     }
     else
     {
-      this.listCart.push(training)
+      this.listTrainings.push(training)
     }
-    localStorage.setItem('training' , JSON.stringify(this.listCart))
-  }
-  
-  validationCart()
-  {
-    if(this.listCart.length > 0)
-    {
-      this.router.navigateByUrl('Customer');
-    }
+    localStorage.setItem('trainings' , JSON.stringify(this.listTrainings))
   }
 
   getuser ()
@@ -73,14 +68,13 @@ export class CartService {
     return this.user
   }
 
-  clickNext()
+  setLocalStorage()
   {
     localStorage.setItem('user' , JSON.stringify(this.user))
-    this.router.navigateByUrl('trainings');
   }
 
   calculTotal()
   {
-    return this.listCart.reduce((sum , e ) => sum += e.price*e.quantity,0)
+    return this.listTrainings.reduce((sum , e ) => sum += e.price*e.quantity,0)
   }
 }
