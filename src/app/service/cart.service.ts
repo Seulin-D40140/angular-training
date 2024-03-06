@@ -20,7 +20,7 @@ export class CartService
   
   getLocalStorageTrainings()
   {
-      let data = localStorage.getItem('trainings')||""
+      let data = localStorage.getItem('trainings')|| ""
       return this.listTrainings = JSON.parse(data)
   }
 
@@ -76,5 +76,12 @@ export class CartService
   calculTotal()
   {
     return this.listTrainings.reduce((sum , e ) => sum += e.price*e.quantity,0)
+  }
+
+  getCart() : Training [] | undefined {   
+    this.listTrainings = this.getLocalStorageTrainings() 
+    if(this.listTrainings.length > 0)
+    return Array.from(this.listTrainings.values());
+    else return undefined;
   }
 }

@@ -16,7 +16,7 @@ export class CartComponent implements OnInit
 
   ngOnInit(): void 
   { 
-    this.cartservice.getLocalStorageTrainings()
+    this.cartservice.getCart()
   }
 
   displayListCart()

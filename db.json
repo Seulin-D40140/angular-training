@@ -1,0 +1,65 @@
+{
+  "trainings": [
+    {
+      "id": 1,
+      "name": "Java",
+      "description": "formation Java SE 5jrs",
+      "price": "1500",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "DotNet",
+      "description": "formation Dotnet 3jrs",
+      "price": "1000",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "python",
+      "description": "formation Python/Django 10jrs",
+      "price": "2000",
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "name": "PHP",
+      "description": "initiation web 4jrs",
+      "price": 1300,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "name": "Nodejs",
+      "description": "prise en main node js express 2jrs",
+      "price": "1400",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "name": "java avancer",
+      "description": "formation java avancé/bdd 3jrs",
+      "price": "1200",
+      "quantity": 1
+    }
+  ],
+
+  "user":
+  [
+    {
+      "email": "Nel640@hotmail.fr",
+      "password": "1234",
+      "roles":["ADMIN","USER"]
+    },
+    {
+      "email": "itai640@hotmail.fr",
+      "password": "1234",
+      "roles":["USER"]
+    },
+    {
+      "email": "kitsune640@hotmail.fr",
+      "password": "1234",
+      "roles":["USER"]
+    }
+  ]
+}
